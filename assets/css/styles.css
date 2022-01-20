@@ -1,9 +1,6 @@
 /*font-family: 'Concert One', cursive;
 font-family: 'Open Sans Condensed', sans-serif;*/
 
-
-
-
 nav {
     background: rgb(194,230,217);
     background: linear-gradient(90deg, rgba(194,230,217,1) 0%, rgba(84,143,108,1) 37%, rgba(31,56,36,1) 100%);
@@ -25,6 +22,8 @@ h3 {
     font-size: 120%;
 }
 
-p {
+h4 {
     font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 120%;
+    font-weight: bold;
 }
