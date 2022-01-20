@@ -5,6 +5,7 @@ let todayTemp = document.getElementById('todaytemp');
 let todayWind = document.getElementById('todaywind');
 let todayHumidity = document.getElementById('todayhumidity');
 let todayUv = document.getElementById('todayuv');
+let icon = document.getElementById('icon');
 
 
 const apiKey = "b0ce11bf2a4fc3e650c06aa56d4e2b0c";
@@ -22,15 +23,29 @@ fetchButton.addEventListener('click', function() {
 
         let locationSearch = document.createElement('h2');
         locationSearch.textContent = inputValue;
-        console.log(inputValue);
         searchLocation.append(locationSearch);
 
+    /*  let iconImg = document.createElement('img');
+        iconImg.src = data.weather.icon;
+        icon.append(iconImg);
+        console.log(iconImg)
+        */
 
         let tempToday = document.createElement('h4');
         tempToday.textContent = 'Temp: ' + data.main.temp; + '\xB0F';
-        console.log(tempToday);
         todayTemp.append(tempToday)
+
+        let windToday = document.createElement('h4');
+        windToday.textContent = 'Wind: ' + data.wind.speed + 'MPH';
+        todayWind.append(windToday)
+
+        let humidityToday = document.createElement('h4');
+        humidityToday.textContent = 'Humidity: ' + data.main.humidity + '%';
+        todayHumidity.append(humidityToday)
+
+        let uvToday = document.createElement('h4');
+        uvToday.textContent = 'Humidity: ' + data.main.humidity + '%';
+        todayUv.append(uvToday)
+
       });
-
-
 }) 
