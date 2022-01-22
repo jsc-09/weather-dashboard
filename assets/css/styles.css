@@ -26,4 +26,14 @@ h4 {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 120%;
     font-weight: bold;
+    display: inline;
+}
+
+.searchHistoryButton {
+    background-color: rgb(171, 195, 171);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
 }
