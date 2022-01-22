@@ -33,14 +33,14 @@
                 <h3>Search for a City:</h3>
                 <input type="text" class="inputValue" placeholder="city">
                 <button class="btn btn-primary mt-2" id="fetch-button">Search</button>
+
+                <div id="searchHistory">
+                </div>
             </div>
 
-            <!-- UL of CITY SEARCH HISTORY--->
-
-            <div id="searchHistory">
+            <!-- SEARCH HISTORY BUTTONS--->
 
 
-            </div>
 
             <!-- MAIN COLUMN -->
 
@@ -69,7 +69,13 @@
 
                 <!-- 5 Day Forecast in 5 cards. Includes: Date, Icon for weather (sunny, rain, cloudy), Temperature, Wind, Humidity--->
                 <div class="row">
-                    <div class="col card m-1">col</div>
+                    <div class="col card m-1">
+                        <h4>DATE</h4>
+                        <img id="futureIcon1">
+                        <p>Temp: <span id="futureTemp1"></span></p>
+                        <p>Wind: <span id="futureWind1"></span></p>
+                        <p>Humidity: <span id="futureHum1"></span></p>
+                    </div>
                     <div class="col card m-1">col</div>
                     <div class="col card m-1">col</div>
                     <div class="col card m-1">col</div>
