@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-3 mt-3">
-                <h3>Search for a City:</h3>
+                <h2>Search for a City:</h2>
                 <input type="text" class="inputValue" placeholder="city">
                 <button class="btn btn-primary mt-2" id="fetch-button">Search</button>
 
@@ -46,48 +46,44 @@
 
             <!-- DISPLAY MOST RECENT CITY SEARCHED. Heading includes City Name, Date, Icon for current weather// List include Temperature, Wind, Humidity, UV index (color-coded)--->
 
-            <div class="col-8 ml-5 mt-3">
-                <div id="searchlocation">
+            <div class="col-9 mt-3">
+                <div class="card p-3 rounded mb-3">
+                    <div id="searchlocation">
                     <h2 id="city"></h2><img id="icon">
-                </div>
-                <div id="todaytemp">
-                    <h4>Temperature: </h4>
-                    <h4 id="temp"></h4>
-                </div>
-                <div id="todaywind">
-                    <h4>Wind: </h4>
-                    <h4 id="wind"></h4>
-                </div>
-                <div id="todayhumidity">
-                    <h4>Humidity: </h4>
-                    <h4 id="humidity"></h4>
-                </div>
-                <div id="todayuv">
-                    <h4>UV Index: </h4>
-                    <h4 id="uvi"></h4>
+                    </div>
+                    <div id="todaytemp">
+                        <h4>Temperature: </h4>
+                        <h4 id="temp"></h4>
+                    </div>
+                    <div id="todaywind">
+                        <h4>Wind: </h4>
+                        <h4 id="wind"></h4>
+                    </div>
+                    <div id="todayhumidity">
+                        <h4>Humidity: </h4>
+                        <h4 id="humidity"></h4>
+                    </div>
+                    <div id="todayuv">
+                        <h4>UV Index: </h4>
+                        <h4 id="uvi"></h4>
+                    </div>
                 </div>
 
                 <!-- 5 Day Forecast in 5 cards. Includes: Date, Icon for weather (sunny, rain, cloudy), Temperature, Wind, Humidity--->
-                <div class="row">
-                    <div class="col card m-1">
-                        <h4>DATE</h4>
-                        <img id="futureIcon1">
-                        <p>Temp: <span id="futureTemp1"></span></p>
-                        <p>Wind: <span id="futureWind1"></span></p>
-                        <p>Humidity: <span id="futureHum1"></span></p>
-                    </div>
-                    <div class="col card m-1">col</div>
-                    <div class="col card m-1">col</div>
-                    <div class="col card m-1">col</div>
-                    <div class="col card m-1">col</div>
+                <div class="row mx-auto"><h2>5 Day Forecast</h2></div>
+                <div class="row mx-auto" id="fivedayforecast">
+
                 </div>
 
             </div>
+
+
         </div>
 
     </div>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 </body>
 
