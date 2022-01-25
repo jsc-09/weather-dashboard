@@ -37,3 +37,7 @@ h4 {
     display: inline-block;
     width: 100%;
 }
+
+.cardbackground {
+    background-color: rgb(188, 235, 207);
+}
