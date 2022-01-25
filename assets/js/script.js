@@ -36,6 +36,10 @@ function renderHistoryButton() {
         tempButton.style.padding = "5px";
         tempButton.style.borderRadius = "5px";
         tempButton.textContent = element;
+        tempButton.addEventListener('click', function(event){
+            //console.log(event.target.textContent)
+            populateDisplay(event.target.textContent);          
+        })
         searchHistoryEl.append(tempButton);
     })
 }
@@ -50,8 +54,10 @@ function populateDisplay(inputValue) {
         .then(function (data) {
             console.log(data);
 
+            let dateString = moment.unix(data.dt).format("MM/DD/YYYY");
+
             let locationSearch = document.getElementById('city');
-            locationSearch.textContent = data.name;
+            locationSearch.textContent = data.name + " (" + dateString + ")"; 
 
             const icon = `http://openweathermap.org/img/wn/${data.weather[0]["icon"]
                 }.png`;
@@ -96,57 +102,25 @@ function populateDisplay(inputValue) {
                         uvToday.style.backgroundColor = "red";
                     }
                     todayUv.append(uvToday)
-                    
-                    /*
-                    const futureIcon = `http://openweathermap.org/img/wn/${uvdata.daily.weather[0]["icon"]
-                    }.png`;
-                    let futureIconImg = document.getElementById('futureIcon1');
-                    futureIconImg.src = futureIcon;
-*/
+                                 
+                    let forecastRow = document.getElementById('fivedayforecast');
+                    forecastRow.innerHTML = "";
 
-                    let futureTemp1 = document.getElementById('futureTemp1');
-                    futureTemp1.textContent = uvdata.daily[1].temp.day + '\xB0 F';
+                    for (let i=0; i<5; i++) {
+                        let futureIcon = `http://openweathermap.org/img/wn/${uvdata.daily[i+1].weather[0]["icon"]}.png`;
 
-                    let futureWind1 = document.getElementById('futureWind1');
-                    futureWind1.textContent = uvdata.daily[1].wind_speed + 'MPH';
-
-                    let futureHum1 = document.getElementById('futureHum1');
-                    futureHum1.textContent = uvdata.daily[1].humidity + '\%';
-
-                });
-        });
-
-
-}
-
-//REQUEST 5 DAY FORECAST
-
-/*
-function fetchFiveDay(inputValue) {
-    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${apiKey}&units=imperial`;
-
-    fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (forecastdata) {
-            console.log(forecastdata)
-
-            let latitudeValue = data.coord.lat
-            let longitudeValue = data.coord.lon
-
-            const fiveDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitudeValue}&lon=${longitudeValue}&appid=${apiKey}&units=imperial`;
-
-            fetch(fiveDayUrl)
-                .then(function (five) {
-                    return five.json();
-                })
-                .then(function (forecast) {
-                    console.log(forecast);
-
-                    let futureTemp1 = document.getElementById('futureTemp1');
-                    futureTemp1.textContent = forecast.daily[1].temp.day + '\xB0 F';
+                        let forecastDateString = moment.unix(uvdata.daily[i+1].dt).format("MM/DD/YYYY");
+                        let markup = `
+                        <div class="text-dark border p-1 mx-auto cardbackground">
+                        <h4>${forecastDateString}</h4>
+                        <img src="${futureIcon}">
+                        <p>Temp: <span>${uvdata.daily[i+1].temp.day} \xB0 F</span></p>
+                        <p>Wind: <span>${uvdata.daily[i+1].wind_speed} MPH</span></p>
+                        <p>Humidity: <span>${uvdata.daily[i+1].humidity} \%</span></p>
+                        </div>        
+                        `;
+                        forecastRow.innerHTML += markup;
+                    }
                 });
         });
 }
-*/
